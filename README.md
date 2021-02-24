@@ -1,6 +1,6 @@
 # Shopping Cart
 
-Check it out [here!]()
+Check it out [here!](https://ianbrdeguzman.github.io/shopping-cart/)
 
 #### Created using:
 
