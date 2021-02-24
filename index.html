@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="height=device-height width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="./style.css">
+    <script src="./app.js" defer></script>
+    <!-- Fontawesome Icons -->
+    <script src="https://kit.fontawesome.com/1a8bb7941b.js" crossorigin="anonymous"></script>
+    <title>Shopping Cart</title>
+</head>
+<body>
+	<header>
+		<div class="toolbar">
+			<form>
+				<button type="submit"><i class="fas fa-search"></i></button>
+				<input type="text" name="search">
+			</form>
+			<div class="cart-icon-container">
+				<i class="fas fa-shopping-cart"></i>
+				CART (<span id="item-total"> 0 </span>)
+			</div>
+		</div>
+		<div class="logo-container">
+			<h1>OpenShop.</h1>
+		</div>
+	</header>
+	<div class="cart-overlay">
+		<div class="cart-header">
+			<h2>YOUR CART</h2>
+			<i class="far fa-window-close"></i>
+		</div>
+		<div class="cart-container">
+
+		</div>
+		<div class="cart-footer">
+			<h2>TOTAL: $ <span id="cart-total">0</span></h2>
+			<button class="clear-cart">CLEAR CART</button>
+		</div>
+	</div>
+	<main>
+		<p>FEATURED COLLECTION</p>
+		<div class="collection-container">
+		</div>
+	</main>
+</body>
+</html> 
