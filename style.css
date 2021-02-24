@@ -20,7 +20,6 @@ body::-webkit-scrollbar {
 }
 header {
     width: 100vw;
-    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -30,24 +29,11 @@ header .toolbar {
     padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
-header .toolbar form {
-    position: relative;
-}
-header .toolbar form input {
-    font-family: inherit;
-    max-width: 120px;
-    padding: 0.2rem 1rem;
-    background: none;
-    border: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
-header .toolbar form button {
-    background: transparent;
-    border: none;
-    position: absolute;
-    top: 5px;
-    left: 3px;
+header .toolbar nav i {
+    font-size: 1.5rem;
+    color: #272727;
 }
 header .toolbar .cart-icon-container {
     cursor: pointer;
@@ -140,6 +126,8 @@ main {
     text-align: center;
 }
 main > p {
+    max-width: 400px;
+    margin: 0 auto;
     padding: 1rem;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -171,7 +159,6 @@ main > p {
 .product-container p {
     margin: 1rem 0;
 }
-
 .product-container button {
     font-family: inherit;
     width: 90%;
@@ -183,7 +170,6 @@ main > p {
     left: 50%;
     transform: translateX(-50%);
 }
-
 .product-container button:hover {
     background: #ecf0f1;
 }
