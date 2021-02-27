@@ -7,6 +7,8 @@
     <script src="./app.js" defer></script>
     <!-- Fontawesome Icons -->
     <script src="https://kit.fontawesome.com/1a8bb7941b.js" crossorigin="anonymous"></script>
+	<!-- Paypal SDK -->
+	<script src="https://www.paypal.com/sdk/js?client-id=AYdDUYsemUnw9QpPj3OwwI8sdtyS0TZQDHbWDWr4v0i7j8SS6NmSWBsj_bYyoW1Q0NR3VHvHl1Lk9RYr&disable-funding=credit,card"></script>
     <title>Shopping Cart</title>
 </head>
 <body>
@@ -33,6 +35,7 @@
 		<div class="cart-footer">
 			<h2>TOTAL: $ <span id="cart-total">0</span></h2>
 			<button class="clear-cart">CLEAR CART</button>
+			<div id="paypal-button-container"></div>
 		</div>
 	</div>
 	<main>

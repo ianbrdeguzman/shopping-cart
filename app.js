@@ -7,6 +7,7 @@ const clearCartBtn = document.querySelector('.clear-cart');
 const openCart = document.querySelector('.cart-icon-container');
 const closeCart = document.querySelector('.fa-window-close');
 const cartOverlay = document.querySelector('.cart-overlay');
+let value;
 
 // initialize cart and buttonArray
 let cart = [];
@@ -116,6 +117,7 @@ class UI {
     itemsTotal.style.color = '#f1c40f';
     // change cart total HTML element value
     cartTotal.textContent = parseFloat(priceTotal.toFixed(2));
+    value = cartTotal.textContent;
   }
   // addToCart method
   // deconstruct obj parameter
@@ -250,6 +252,37 @@ class UI {
   searchButton(id) {
     return buttonArray.find( (button) => parseInt(button.dataset.id) === id);
   }
+  // paypal setup method
+  paypalSetup() {
+    // if value is greater than 0 value else 0.01
+    value = (value > 0) ? value : 0.01;
+    paypal.Buttons({
+      createOrder: function(data, actions) {
+        return actions.order.create({
+          purchase_units: [{
+            amount: {
+              value: `${value}`
+            }
+          }]
+        });
+      },
+      // on approve function
+      onApprove: function(data, actions) {
+        return actions.order.capture().then(function(details) {
+          alert('Transaction completed by ' + details.payer.name.given_name);
+        });
+      },
+      // on cancel function
+      onCancel: function (data) {
+        alert('You canceled the transaction')
+      },
+      // on error function
+      onError: (err) => {
+        console.error('Something went wrong', err);
+        alert(err);
+      }
+    }).render('#paypal-button-container');
+  }
 }
 
 // local storage class
@@ -285,18 +318,16 @@ document.addEventListener('DOMContentLoaded', async () => {
   const productList = new Products();
   // assign products 
   const products = await productList.getProducts();
-  
   // call ui setup method
   ui.setUp();
   // call ui display products method
   ui.displayProducts(products);
   // call ui get buttons method
   ui.getButtons();
+  // call ui paypal setup
+  ui.paypalSetup();
   // call ui cart login method
   ui.cartLogic();
   // store products in local storage
   Storage.saveProducts(products);
 });
-
-
-
